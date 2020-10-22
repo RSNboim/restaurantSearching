@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>find your ideal place to eat</h1>
+  <p>where would you like to eat?</p>
+  <div class="ng-autocomplete">
+    <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeHolder="Enter the city Name" historyIdentifier="data"
+      [itemTemplate]="CityItemTemplate" [notFoundTemplate]="notFoundTemplate"
+      (selected)='selectEvent($event); getTypes($event)'>
+    </ng-autocomplete>
+
+    <ng-template #CityItemTemplate let-item>
+      <div class="item">
+        <span [innerHTML]="item.city"></span> &nbsp;
+      </div>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound">
+
+      </div>
+    </ng-template>
+  </div>
+
+
+  <section>
+
+    <div *ngIf="selectedCity">
+
+      <ng-autocomplete [data]="restaurantsInCity" [searchKeyword]="secondKeyword" placeHolder="Enter restaurant type"
+        (selected)='typeSelected($event)' [itemTemplate]="TypeTemplate">
+      </ng-autocomplete>
+      <ng-template #TypeTemplate let-item>
+        <div class="item">
+          <span [innerHTML]="item.type"></span> &nbsp;
+        </div>
+      </ng-template>
+
+    </div>
+
+
+  </section>
+
+  <div class="rest-card" *ngFor="let r of selectedRet">
+      <h2>{{ r.name }}</h2>
+      <h3>{{r.type}}</h3>
+      <p>our flagship dish: </p>
+      <h4>{{r.menu[0].name}}</h4>
+      <h4 id="quotation">{{r.menu[0].description}}</h4>
+    <star-rating value={{getAverage(r)}} totalstars="5" checkedcolor="red"
+      uncheckedcolor="white" size="20px" readonly="false"></star-rating>
+ <button (click)="onselect(r)">TO the restaurant</button>
+    </div>
+    </div>
+

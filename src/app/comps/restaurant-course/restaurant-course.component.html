@@ -1,0 +1,28 @@
+<!-- <div *ngFor="let item of currentRestaurant | keyvalue"> -->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{currentRestaurant.name}}:{{currentRestaurant.city}}</mat-card-title>
+      <mat-card-subtitle>{{currentRestaurant.type}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="('./assets/Dish.png'">
+    <mat-card-content>
+      <p>
+        this is a mock restaurant description of our special story...
+      </p>
+    </mat-card-content>
+    <star-rating value={{averageRate}} totalstars="5" checkedcolor="red"
+      uncheckedcolor="white" size="20px"></star-rating>
+
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="menu-card" *ngFor="let course of currentRestaurant.menu ">
+  <mat-card-title>{{course.name}}</mat-card-title>
+  <mat-card-content>
+    <p>{{course.description}}</p>
+    <h2>price:{{course.price}}</h2>
+  </mat-card-content>
+</mat-card>
+<!-- </div> -->

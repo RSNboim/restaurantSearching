@@ -1,0 +1,27 @@
+<div class="parent" >
+  <form #restaurantForm (submit)="$event.preventDefault()">
+    <mat-form-field>
+      <mat-label>Enter restaurant name</mat-label>
+      <input matInput (cdkAutofill)="restaurantNameAutofilled = $event.isAutofilled" (change)=insertRestaurantName($event)>
+      <mat-hint *ngIf="restaurantNameAutofilled">Autofilled!</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Enter city</mat-label>
+      <input matInput (cdkAutofill)="cityAutofilled = $event.isAutofilled" (change)=insertRestaurantCity($event)>
+      <mat-hint *ngIf="cityAutofilled">Autofilled!</mat-hint>
+    </mat-form-field>
+    <!-- perhaps use drag n' drop for image uploading.......-->
+      <!-- <mat-form-field> -->
+      <!-- <mat-label>Last name</mat-label>
+      <input matInput (cdkAutofill)="imageAutofilled = $event.isAutofilled">
+      <mat-hint *ngIf="imageAutofilled">Autofilled!</mat-hint>
+    </mat-form-field> -->
+    <mat-form-field>
+      <mat-label> Enter type</mat-label>
+      <input   matInput (cdkAutofill)="typeAutofilled = $event.isAutofilled" (change)="insertRestaurantType($event)" >
+      <mat-hint *ngIf="typeAutofilled">Autofilled!</mat-hint>
+    </mat-form-field>
+
+      <button mat-raised-button  type="submit" (click)="insertNewRestaurant($event);clearForm(restaurantForm)" >Submit</button >
+  </form>
+  </div>

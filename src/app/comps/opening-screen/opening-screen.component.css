@@ -1,0 +1,36 @@
+
+.container{
+ text-align: center;
+}
+h1{
+  margin:109px 0 16px
+}
+.ng-autocomplete {
+        width:100%;
+        max-width: 600px;
+        display: table;
+        margin: 0 auto;
+      }
+      .item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-inline-start:0px;
+      }
+      .rest-card{
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  background-image:url("../../../assets/quotes1.jpg");
+  background-repeat:no-repeat;
+
+}
+.card:hover{
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+#quotation{
+  size: 30px;
+}
